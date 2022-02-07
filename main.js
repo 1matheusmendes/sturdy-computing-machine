@@ -14,19 +14,18 @@ function verificaData(){
 
     var dataInformada = document.getElementById("data").value;
 
-    if (dataInformada > dataAtual){
-        console.log("data ok");
+    if (dataInformada >= dataAtual){
+        console.log("Data ok")
     }
     else    
         alert("Data invalida");
 }
 
-
 function idadeInformada(){
 
     var idade = parseInt (document.getElementById("idade").value);
     
-    if (idade => 18){
+    if (idade >= 18){
         console.log("Ok")
     }
     else
@@ -35,10 +34,16 @@ function idadeInformada(){
 
 function adicionar() {
     var participante = document.getElementById("participantes").value;
-    var lista_participante = document.getElementById("list_participantes").innerHTML;
+    
+    while (participante < 5){
+        console.log("participante cadastrado" + participante);
+    }
 
-    lista_participante = lista_participante + "<li class = data_evento >"+participante+"</li>";
+
+    //var lista_participante = document.getElementById("list_participantes").innerHTML;
+
+    //lista_participante = lista_participante + "<li class = data_evento >"+participante+"</li>";
         
-    document.getElementById("list_participantes").innerHTML = lista_participante;
+    //document.getElementById("list_participantes").innerHTML = lista_participante;
     
 }
