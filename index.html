@@ -33,14 +33,22 @@
     </div>    
     <br><br>
     <div class="data_evento">
+        <strong>Selecione a palestra</strong>    
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Escolha um palestrante</option>
+            <option value="1">Palestrante sobre visão computacional</option>
+            <option value="2">Palestrante Front-end</option>
+            <option value="3">Palestrante Back-end</option>
+          </select>
+    </div>
+    <br><br>  
+    <div class="data_evento">
     <strong>Adicionar participante ao evento</strong>    
         <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="text" id="participantes">
         <button class="btn btn-primary espaco_botao" onclick="adicionar()" >Enviar</button>
     </div>        
-    <!-- 
         <ul class="list-group list-group-flush" id="list_participantes">
         <li class="list-group-item data_evento">Participantes inscritos</li> 
-    </ul>
-    -->    
+    </ul>    
 </body>
 </html>
