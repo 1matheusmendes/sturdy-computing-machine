@@ -40,10 +40,10 @@ function adicionar() {
     }
 
 
-    //var lista_participante = document.getElementById("list_participantes").innerHTML;
+    var lista_participante = document.getElementById("list_participantes").innerHTML;
 
-    //lista_participante = lista_participante + "<li class = data_evento >"+participante+"</li>";
+    lista_participante = lista_participante + "<li class = data_evento >"+participante+"</li>";
         
-    //document.getElementById("list_participantes").innerHTML = lista_participante;
+    document.getElementById("list_participantes").innerHTML = lista_participante;
     
 }
