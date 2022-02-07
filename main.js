@@ -2,15 +2,23 @@
 
 function verificaData(){
 
-    var dataAtual = Date();
+    var data = new Date();
 
-    console.log(dataAtual)
+    var ano = data.getFullYear();
+
+    var mes = String(data.getMonth()+1).padStart(2, '0');
+
+    var dia = String(data.getDate()).padStart(2, '0');
+    
+    var dataAtual = ano +'-'+ mes +'-'+ dia;
 
     var dataInformada = document.getElementById("data").value;
 
-
-    console.log(dataInformada);
-
+    if (dataInformada > dataAtual){
+        console.log("data ok");
+    }
+    else    
+        alert("Data invalida");
 }
 
 
@@ -18,7 +26,7 @@ function idadeInformada(){
 
     var idade = parseInt (document.getElementById("idade").value);
     
-    if (idade > 18){
+    if (idade => 18){
         console.log("Ok")
     }
     else
@@ -29,7 +37,7 @@ function adicionar() {
     var participante = document.getElementById("participantes").value;
     var lista_participante = document.getElementById("list_participantes").innerHTML;
 
-    lista_participante = lista_participante + "<li>"+participante+"</li>";
+    lista_participante = lista_participante + "<li class = data_evento >"+participante+"</li>";
         
     document.getElementById("list_participantes").innerHTML = lista_participante;
     
