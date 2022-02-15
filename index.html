@@ -12,7 +12,7 @@
 <body>
     <script src="main.js"></script>
 
-    <div class="jumbotron jumbotron-fluid margem_topo">
+    <div class="jumbotron jumbotron-fluid margem_topo data_evento">
         <div class="container">
           <h1 class="display-4">Sistema de Cadastro Para Eventos</h1>
           <p class="lead">Esse sistema terá como função principal a divulgação dos eventos para a comunidade de desenvolvimento, para que sejam consultados de forma eficiente.</p>
@@ -22,33 +22,56 @@
     <div class="data_evento">
         <strong class="center_strong">Informe a data do evento</strong>
         <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="date" id="data">
-        <button class="btn btn-primary espaco_botao" onclick="verificaData()">Enviar</button>
+        <!-- <button class="btn btn-primary espaco_botao" onclick="verificaData()">Enviar</button>-->
     </div>
 
     <br><br>
     <div class="data_evento">
     <strong>Informe a sua idade</strong>
         <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="number" id="idade">
-        <button class="btn btn-primary espaco_botao" onclick="idadeInformada()">Enviar</button>  
+        <!-- <button class="btn btn-primary espaco_botao" onclick="idadeInformada()">Enviar</button> -->  
     </div>    
     <br><br>
     <div class="data_evento">
         <strong>Selecione a palestra</strong>    
-        <select class="form-select" aria-label="Default select example">
+        <select id="select_palestra" class="form-select" aria-label="Default select example">
             <option selected>Escolha um palestrante</option>
-            <option value="1">Palestrante sobre visão computacional</option>
-            <option value="2">Palestrante Front-end</option>
-            <option value="3">Palestrante Back-end</option>
+            <option id="visao_computacional" value="1">Visão computacional</option>
+            <option id="front_end" value="2">Front-end</option>
+            <option id="back_end" value="3">Back-end</option>
           </select>
     </div>
     <br><br>  
     <div class="data_evento">
     <strong>Adicionar participante ao evento</strong>    
         <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="text" id="participantes">
-        <button class="btn btn-primary espaco_botao" onclick="adicionar()" >Enviar</button>
+        <button class="btn btn-primary espaco_botao" onclick="cadastrar()" >Cadastrar</button>
     </div>        
-        <ul class="list-group list-group-flush" id="list_participantes">
-        <li class="list-group-item data_evento">Participantes inscritos</li> 
-    </ul>    
+     <div class="data_evento">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col" >Nome</th>
+                <th scope="col">idade</th>
+                <th scope="col">Palestra</th>
+                <th scope="col">Data</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"></th>
+                <td id="list_participantes"></td>
+                <td id="lista_idade"></td>
+                <td id="lista_palestrante"></td>
+                <td id="lista_data"></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <h5>Gerar PDF</h5>
+          <button class="btn btn-primary espaco_botao" onclick="gerarpdf()" >Gerar PDF</button>
+     </div>       
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
 </body>
 </html>
