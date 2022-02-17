@@ -1,110 +1,165 @@
 //Matheus Mendes
-/** 
-function verificaData(){
+
+var palestras = [
+    {
+        name: "visão computacional",
+        id: "visao_computacional",
+        value: "1",
+        qntVagas: 5,
+        vagasUtil: 1,
+    },
+    {
+        name: "Front-End",
+        id: "front_end",
+        value: "2",
+        qntVagas: 5,
+        vagasUtil: 1,
+    },
+    {
+        name: "Back-End",
+        id: "back_end",
+        value: "3",
+        qntVagas: 5,
+        vagasUtil: 1,
+    }
+];
+var vs = document.getElementById("visao_computacional");
+var frontend = document.getElementById("front_end");
+var backand = document.getElementById("back_end");
+
+
+function verificaData() {
 
     var data = new Date();
 
     var ano = data.getFullYear();
 
-    var mes = String(data.getMonth()+1).padStart(2, '0');
+    var mes = String(data.getMonth() + 1).padStart(2, '0');
 
     var dia = String(data.getDate()).padStart(2, '0');
-    
-    var dataAtual = ano +'-'+ mes +'-'+ dia;
+
+    var dataAtual = ano + '-' + mes + '-' + dia;
 
     var dataInformada = document.getElementById("data").value;
 
-    if (dataInformada >= dataAtual){
-        console.log("Data ok")
-    }
-    else    
-        alert("Data invalida");
-}
-
-//function idadeInformada(){
-
-//    var idade = parseInt (document.getElementById("idade").value);
-    
-  //  if (idade >= 18){
-    //    console.log("Ok")
-    //}
-    //else
-    //    alert ("Você não tem a idade minima para participar do evento");
-//}
-*/
-function cadastrar() {
-
-    var data = new Date();
-    var ano = data.getFullYear();
-    var mes = String(data.getMonth()+1).padStart(2, '0');
-    var dia = String(data.getDate()).padStart(2, '0');
-
-    var dataAtual = ano +'-'+ mes +'-'+ dia;
-
-    var dataInformada = document.getElementById("data").value;
-
-    if (dataInformada >= dataAtual){
-        //console.log("Data ok")
-    }
-    else    
-        alert("Data invalida");
-
-    var idade = parseInt (document.getElementById("idade").value);
-    
-    if (idade >= 18){
-        //console.log("Idade ok")
+    if (dataInformada >= dataAtual) {
+        return dataInformada ? dataInformada : false;
     }
     else
-        alert ("Você não tem a idade minima para participar do evento");
+        return false;
+}
 
+function idadeInformada() {
+
+    var idade = parseInt(document.getElementById("idade").value);
+
+    if (idade >= 18) {
+        return idade ? idade : false;
+    }
+    else
+        return false;
+}
+
+function validarNome() {
     var participante = document.getElementById("participantes").value;
-    var lista_participante = document.getElementById("list_participantes").innerHTML;
-    lista_participante = lista_participante + "<th class = data_evento >"+participante+"</th> <br>";
-    document.getElementById("list_participantes").innerHTML = lista_participante;    
 
-    var lista_idade = document.getElementById("lista_idade").innerHTML;
-    lista_idade = lista_idade +"<th class = data_evento >"+idade+"</th> <br>";
-    document.getElementById("lista_idade").innerHTML = lista_idade;
+    return participante ? participante : false;
+}
 
-
-    var vs = document.getElementById("visao_computacional").innerHTML;
-    var frontend = document.getElementById("front_end").innerHTML;
-    var backand = document.getElementById("back_end").innerHTML;
-
+function validarPalestras() {
     var select_palestra = document.getElementById("select_palestra").value;
-
-    
-    //console.log(select_palestra);
-
     switch (select_palestra) {
         case "1":
-            var lista_palestrante = document.getElementById("lista_palestrante").innerHTML;
-            lista_palestrante = lista_palestrante+"<th class = data_evento >"+vs+"</th> <br>";
-            document.getElementById("lista_palestrante").innerHTML = lista_palestrante; 
+            var validate = checarVagas(palestras[0]);
+            if (validate) {
+                palestras[0].vagasUtil = palestras[0].vagasUtil + 1;
+                return true ;
+            }
+            else {
+                alert("Não tem mais vaga mané");
+                return false;
+            }
             break;
         case "2":
-            var lista_palestrante = document.getElementById("lista_palestrante").innerHTML;
-            lista_palestrante = lista_palestrante+"<th class = data_evento >"+frontend+"</th> <br>";
-            document.getElementById("lista_palestrante").innerHTML = lista_palestrante;
+            var validate = checarVagas(palestras[1]);
+            if (validate) {
+                palestras[1].vagasUtil = palestras[1].vagasUtil + 1;
+                return true;
+            }
+            else {
+                alert("Não tem mais vaga mané");
+                return false;
+            }
             break;
         case "3":
-            var lista_palestrante = document.getElementById("lista_palestrante").innerHTML;
-            lista_palestrante = lista_palestrante+"<th class = data_evento >"+backand+"</th> <br>";
-            document.getElementById("lista_palestrante").innerHTML = lista_palestrante;                    
-            break; 
+            var validate = checarVagas(palestras[2]);
+            if (validate) {
+                palestras[2].vagasUtil = palestras[2].vagasUtil + 1;
+                return true;
+            }
+            else {
+                alert("Não tem mais vaga mané");
+                return false;
+            }
+            break;
         default:
-            console.log("entrada invalida");       
-            break;    
-    }   
+            alert("entrada invalida");
+            return false;
+            break;
+    }
+}
 
-    var listadata = document.getElementById("lista_data").innerHTML;
-    listadata = listadata+"<th class = lista_data >"+dataInformada+"</th> <br>";
-    document.getElementById("lista_data").innerHTML = listadata;
+function cadastrar() {
+    const dataVerificada = verificaData();
+    const idadeVerificada = idadeInformada();
+    const nomeVerificado = validarNome();
+    const palestraVerificada = validarPalestras();
     
-    const todososdados = [dataInformada, idade, participante, select_palestra];
+    if (dataVerificada && idadeVerificada && nomeVerificado && palestraVerificada) {    
+        //var participante = document.getElementById("participantes").value;
+        var lista_participante = document.getElementById("list_participantes").innerHTML;
+        lista_participante = lista_participante + "<th class = data_evento >" + nomeVerificado + "</th> <br>";
+        document.getElementById("list_participantes").innerHTML = lista_participante;
 
-    var dadosJSON = JSON.stringify(todososdados);
+        var lista_idade = document.getElementById("lista_idade").innerHTML;
+        lista_idade = lista_idade + "<th class = data_evento >" + idadeVerificada + "</th> <br>";
+        document.getElementById("lista_idade").innerHTML = lista_idade;       
 
-    console.log(dadosJSON);
+        var select_palestra = document.getElementById("select_palestra").value;
+        switch (select_palestra) {
+            
+            case "1":
+                var lista_palestrante = document.getElementById("lista_palestrante").innerHTML;
+                lista_palestrante = lista_palestrante + "<th class = data_evento >" + vs + "</th> <br>";
+                document.getElementById("lista_palestrante").innerHTML = lista_palestrante;
+                break;
+            case "2":
+                var lista_palestrante = document.getElementById("lista_palestrante").innerHTML;
+                lista_palestrante = lista_palestrante + "<th class = data_evento >" + frontend + "</th> <br>";
+                document.getElementById("lista_palestrante").innerHTML = lista_palestrante;
+                break;
+            case "3":
+                var lista_palestrante = document.getElementById("lista_palestrante").innerHTML;
+                lista_palestrante = lista_palestrante + "<th class = data_evento >" + backand + "</th> <br>";
+                document.getElementById("lista_palestrante").innerHTML = lista_palestrante;
+                break;
+            default:
+                console.log("entrada invalida");
+                break;
+        }
+        var lista_data = document.getElementById("lista_data").innerHTML;
+        lista_data = lista_data + "<th class = lista_data >" + dataVerificada + "</th> <br>";
+        document.getElementById("lista_data").innerHTML = lista_data;
+    }
+}
+
+function checarVagas(palestra) {
+    console.log(palestra);
+    if (palestra.vagasUtil <= palestra.qntVagas) {
+        return true
+    }
+    else {
+        return false;
+    }
 
 }
