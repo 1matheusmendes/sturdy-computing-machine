@@ -2,7 +2,7 @@
 
 var palestras = [
     {
-        name: "visão computacional",
+        name: "Visão Computacional",
         id: "visao_computacional",
         value: "1",
         qntVagas: 5,
@@ -23,10 +23,6 @@ var palestras = [
         vagasUtil: 1,
     }
 ];
-var vs = document.getElementById("visao_computacional");
-var frontend = document.getElementById("front_end");
-var backand = document.getElementById("back_end");
-
 
 function verificaData() {
 
@@ -73,10 +69,10 @@ function validarPalestras() {
             var validate = checarVagas(palestras[0]);
             if (validate) {
                 palestras[0].vagasUtil = palestras[0].vagasUtil + 1;
-                return true ;
+                return palestras[0].name;
             }
             else {
-                alert("Não tem mais vaga mané");
+                alert("Não tem mais vaga para essa palestra");
                 return false;
             }
             break;
@@ -84,10 +80,10 @@ function validarPalestras() {
             var validate = checarVagas(palestras[1]);
             if (validate) {
                 palestras[1].vagasUtil = palestras[1].vagasUtil + 1;
-                return true;
+                return palestras[1].name;
             }
             else {
-                alert("Não tem mais vaga mané");
+                alert("Não tem mais vaga para essa palestra");
                 return false;
             }
             break;
@@ -95,10 +91,10 @@ function validarPalestras() {
             var validate = checarVagas(palestras[2]);
             if (validate) {
                 palestras[2].vagasUtil = palestras[2].vagasUtil + 1;
-                return true;
+                return palestras[2].name;
             }
             else {
-                alert("Não tem mais vaga mané");
+                alert("Não tem mais vaga para essa palestra");
                 return false;
             }
             break;
@@ -130,17 +126,17 @@ function cadastrar() {
             
             case "1":
                 var lista_palestrante = document.getElementById("lista_palestrante").innerHTML;
-                lista_palestrante = lista_palestrante + "<th class = data_evento >" + vs + "</th> <br>";
+                lista_palestrante = lista_palestrante + "<th class = data_evento >" + palestraVerificada + "</th> <br>";
                 document.getElementById("lista_palestrante").innerHTML = lista_palestrante;
                 break;
             case "2":
                 var lista_palestrante = document.getElementById("lista_palestrante").innerHTML;
-                lista_palestrante = lista_palestrante + "<th class = data_evento >" + frontend + "</th> <br>";
+                lista_palestrante = lista_palestrante + "<th class = data_evento >" + palestraVerificada + "</th> <br>";
                 document.getElementById("lista_palestrante").innerHTML = lista_palestrante;
                 break;
             case "3":
                 var lista_palestrante = document.getElementById("lista_palestrante").innerHTML;
-                lista_palestrante = lista_palestrante + "<th class = data_evento >" + backand + "</th> <br>";
+                lista_palestrante = lista_palestrante + "<th class = data_evento >" + palestraVerificada + "</th> <br>";
                 document.getElementById("lista_palestrante").innerHTML = lista_palestrante;
                 break;
             default:
