@@ -25,17 +25,12 @@ var palestras = [
 ];
 
 function verificaData() {
-
     var data = new Date();
-
     var ano = data.getFullYear();
-
     var mes = String(data.getMonth() + 1).padStart(2, '0');
-
     var dia = String(data.getDate()).padStart(2, '0');
 
     var dataAtual = ano + '-' + mes + '-' + dia;
-
     var dataInformada = document.getElementById("data").value;
 
     if (dataInformada >= dataAtual) {
@@ -46,7 +41,6 @@ function verificaData() {
 }
 
 function idadeInformada() {
-
     var idade = parseInt(document.getElementById("idade").value);
 
     if (idade >= 18) {
@@ -157,5 +151,4 @@ function checarVagas(palestra) {
     else {
         return false;
     }
-
 }

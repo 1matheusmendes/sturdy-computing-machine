@@ -15,3 +15,5 @@ Esse sistema terá como função principal a divulgação dos eventos para a com
 - [x] Listar participantes e palestrantes por evento.
 - [x] Enquanto a quantidade de participantes for inferior a 100, permitir cadastro; senão, alertar que o cadastro não será permitido por ter excedido o limite.
 - [x] Criar fluxograma com todos os requisitos que devem ser atendidos pelo sistema.
+
+
