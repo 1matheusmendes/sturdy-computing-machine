@@ -16,4 +16,6 @@ Esse sistema terá como função principal a divulgação dos eventos para a com
 - [x] Enquanto a quantidade de participantes for inferior a 100, permitir cadastro; senão, alertar que o cadastro não será permitido por ter excedido o limite.
 - [x] Criar fluxograma com todos os requisitos que devem ser atendidos pelo sistema.
 
+## Projeto Finalizado 👨‍💻👨‍💻👨‍💻👨‍💻
+
 ![](https://raw.githubusercontent.com/matheusmendescosta/sturdy-computing-machine/main/assets/SistemadeCadastroParaEventosFinal.gif)
