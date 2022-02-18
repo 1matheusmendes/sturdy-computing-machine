@@ -17,5 +17,5 @@ Esse sistema terá como função principal a divulgação dos eventos para a com
 - [x] Criar fluxograma com todos os requisitos que devem ser atendidos pelo sistema.
 
 <p align="center">
-    <img width="570" height="300" src"assets\SistemadeCadastroParaEventosFinal.gif" />
+    <img width="570" height="300" src"assets/SistemadeCadastroParaEventosFinal.gif" />
 </p>
