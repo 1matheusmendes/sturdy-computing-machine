@@ -99,6 +99,16 @@ function validarPalestras() {
     }
 }
 
+function checarVagas(palestra) {
+    console.log(palestra);
+    if (palestra.vagasUtil <= palestra.qntVagas) {
+        return true
+    }
+    else {
+        return false;
+    }
+}
+
 function cadastrar() {
     const dataVerificada = verificaData();
     const idadeVerificada = idadeInformada();
@@ -140,15 +150,5 @@ function cadastrar() {
         var lista_data = document.getElementById("lista_data").innerHTML;
         lista_data = lista_data + "<th class = lista_data >" + dataVerificada + "</th> <br>";
         document.getElementById("lista_data").innerHTML = lista_data;
-    }
-}
-
-function checarVagas(palestra) {
-    console.log(palestra);
-    if (palestra.vagasUtil <= palestra.qntVagas) {
-        return true
-    }
-    else {
-        return false;
     }
 }
